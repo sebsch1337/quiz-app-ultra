@@ -43,3 +43,7 @@ main {
   flex-wrap: wrap;
   margin-bottom: 65px;
 }
+
+.card__list {
+  padding: 0;
+}

@@ -1,6 +1,7 @@
+import Tag from "../tag/Tag";
 import "./Card.css";
 
-const Card = ({ question, answer, tag }) => {
+const Card = ({ question, answer, tags }) => {
   return (
     <li className="card__item card__item__enter">
       <button className="card__bookmark-button">
@@ -14,9 +15,9 @@ const Card = ({ question, answer, tag }) => {
       <button className="card__reveal-button">Show answer</button>
       <p className="card__answer">{answer}</p>
       <ul className="card__tag-list">
-        <li>
-          <span className="card__tag">#{tag}</span>
-        </li>
+        {tags.map((tag) => {
+          return <Tag key={tag} name={tag} />;
+        })}
       </ul>
     </li>
   );

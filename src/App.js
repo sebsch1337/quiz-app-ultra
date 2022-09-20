@@ -3,14 +3,38 @@ import Card from "./components/card/Card";
 import Header from "./components/header/Header";
 import Navigation from "./components/navigation/Navigation";
 
+const db = [
+  {
+    id: 0,
+    question: "How is the weather?",
+    answer: "Sunny!",
+    tags: ["weather", "sun", "rain"],
+  },
+  {
+    id: 1,
+    question: "What is the best beer?",
+    answer: "Dortmunder Kronen!",
+    tags: ["beer", "dortmund"],
+  },
+  {
+    id: 3,
+    question: "How many people live in the Philippines?",
+    answer: "Around 100m",
+    tags: ["philippines", "population"],
+  },
+];
+
 function App() {
   return (
     <div className="App">
       <Header />
       <main>
         <ul className="card__list">
-          <Card question="How is the weather?" answer="Sunny!" tag="weather" />
-          <Card question="Best Beer?" answer="Dortmunder Kronen" tag="beer" />
+          {db.map(({ id, question, answer, tags }) => {
+            return (
+              <Card key={id} question={question} answer={answer} tags={tags} />
+            );
+          })}
         </ul>
       </main>
       <Navigation />

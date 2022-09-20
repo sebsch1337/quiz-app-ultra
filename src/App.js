@@ -9,8 +9,8 @@ function App() {
       <Header />
       <main>
         <ul className="card__list">
-          <Card />
-          <Card />
+          <Card question="How is the weather?" answer="Sunny!" tag="weather" />
+          <Card question="Best Beer?" answer="Dortmunder Kronen" tag="beer" />
         </ul>
       </main>
       <Navigation />

@@ -31,7 +31,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Cards cards={db} />
+      <main>
+        <Cards cards={db} />
+      </main>
       <Navigation page={page} setPage={setPage} />
     </div>
   );

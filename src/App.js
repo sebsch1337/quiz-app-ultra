@@ -2,6 +2,7 @@ import "./App.css";
 import Card from "./components/card/Card";
 import Header from "./components/header/Header";
 import Navigation from "./components/navigation/Navigation";
+import { useState } from "react";
 
 const db = [
   {
@@ -25,6 +26,8 @@ const db = [
 ];
 
 function App() {
+  const [page, setPage] = useState("home");
+
   return (
     <div className="App">
       <Header />
@@ -37,7 +40,7 @@ function App() {
           })}
         </ul>
       </main>
-      <Navigation />
+      <Navigation page={page} setPage={setPage} />
     </div>
   );
 }

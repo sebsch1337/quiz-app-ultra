@@ -46,7 +46,7 @@
   margin-top: 10px;
   font-size: 10pt;
   padding: 10px;
-  visibility: hidden;
+  height: 1em;
 }
 
 .card__tag-list {

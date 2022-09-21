@@ -13,9 +13,8 @@ const Navigation = () => {
         <button
           onClick={() => setActiveNav("home")}
           className={
-            activeNav === "home"
-              ? "navigation__button navigation__button--active"
-              : "navigation__button"
+            `navigation__button` +
+            (activeNav === "home" ? " navigation__button--active" : "")
           }
         >
           <img src={homeIcon} alt="Navigate to home" />
@@ -24,9 +23,8 @@ const Navigation = () => {
         <button
           onClick={() => setActiveNav("bookmarks")}
           className={
-            activeNav === "bookmarks"
-              ? "navigation__button navigation__button--active"
-              : "navigation__button"
+            `navigation__button` +
+            (activeNav === "bookmarks" ? " navigation__button--active" : "")
           }
         >
           <img src={bookmarksIcon} alt="Navigate to bookmarks" />
@@ -35,9 +33,8 @@ const Navigation = () => {
         <button
           onClick={() => setActiveNav("profile")}
           className={
-            activeNav === "profile"
-              ? "navigation__button navigation__button--active"
-              : "navigation__button"
+            `navigation__button` +
+            (activeNav === "profile" ? " navigation__button--active" : "")
           }
         >
           <img src={profileIcon} alt="Navigate to profile" />

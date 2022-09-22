@@ -3,16 +3,17 @@ import Tag from "../tag/Tag";
 import "./Card.css";
 
 import bookmarkIconAdd from "../../img/bookmark_add.svg";
+import bookmarkedIcon from "../../img/bookmarked.svg";
 
-const Card = ({ question, answer, tags }) => {
+const Card = ({ question, answer, tags, bookmarked }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
     <li className="card__item card__item__enter">
       <button className="card__bookmark-button">
         <img
           className="card__bookmark-icon"
-          src={bookmarkIconAdd}
-          alt="Add to bookmarks"
+          src={bookmarked ? bookmarkedIcon : bookmarkIconAdd}
+          alt={bookmarked ? "Remove from bookmarks" : "Add to bookmarks"}
         />
       </button>
       <p className="card__question">{question}</p>

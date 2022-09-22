@@ -40,7 +40,7 @@ function App() {
       case "profile":
         return <Profile />;
       case "bookmarks":
-        return <Cards cards={db} showBookmarksOnly={true} />;
+        return <Cards cards={db.filter((card) => card.bookmarked)} />;
       default:
         return page + " exisitert (noch) nicht!";
     }

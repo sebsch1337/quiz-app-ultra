@@ -4,16 +4,27 @@ import "./Card.css";
 
 import bookmarkIconAdd from "../../img/bookmark_add.svg";
 import bookmarkedIcon from "../../img/bookmarked.svg";
+import deleteIcon from "../../img/delete.svg";
 
-const Card = ({ question, answer, tags, bookmarked }) => {
+const Card = ({ cardId, question, answer, tags, bookmarked, deleteCard }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
     <li className="card__item card__item__enter">
-      <button className="card__bookmark-button">
+      <button className="card__top-button card__top-button--bookmark">
         <img
-          className="card__bookmark-icon"
+          className="card__top-button-icon--bookmark"
           src={bookmarked ? bookmarkedIcon : bookmarkIconAdd}
           alt={bookmarked ? "Remove from bookmarks" : "Add to bookmarks"}
+        />
+      </button>
+      <button
+        onClick={() => deleteCard(cardId)}
+        className="card__top-button card__top-button--delete"
+      >
+        <img
+          className="card__top-button-icon--delete"
+          src={deleteIcon}
+          alt="Delete card"
         />
       </button>
       <p className="card__question">{question}</p>

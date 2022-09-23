@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { useEffect, useState, useId } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 import Cards from "./pages/cards/Cards";
@@ -58,12 +58,15 @@ function App() {
     });
   };
 
+  const deleteCard = (cardId) =>
+    setCards(cards.filter((card) => card.id !== cardId));
+
   const loadPage = (page) => {
     switch (page) {
       case "home":
         return (
           <>
-            <Cards cards={cards} />
+            <Cards cards={cards} deleteCard={deleteCard} />
             <Create appendCard={appendCard} />
           </>
         );

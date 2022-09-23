@@ -61,16 +61,28 @@
   list-style: none;
 }
 
-.card__bookmark-button {
+.card__top-button {
   position: absolute;
-  top: -5px;
-  right: 20px;
   background-color: transparent;
   border: 0;
 }
 
-.card__bookmark-icon {
-  height: 35px;
+.card__top-button--bookmark {
+  right: 20px;
+  top: -8px;
+}
+
+.card__top-button--delete {
+  right: 0px;
+  bottom: 5px;
+}
+
+.card__top-button-icon--bookmark {
+  height: 40px;
+}
+
+.card__top-button-icon--delete {
+  height: 25px;
 }
 
 /* .card__bookmark-icon--active {

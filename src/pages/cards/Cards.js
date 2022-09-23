@@ -1,7 +1,7 @@
 import "./Cards.css";
 import Card from "../../components/card/Card";
 
-const Cards = ({ cards, deleteCard }) => {
+const Cards = ({ cards, deleteCard, toggleBookmark }) => {
   return (
     <ul className="card__list">
       {cards.map(({ id, question, answer, tags, bookmarked }) => {
@@ -14,6 +14,7 @@ const Cards = ({ cards, deleteCard }) => {
             tags={tags}
             bookmarked={bookmarked}
             deleteCard={deleteCard}
+            toggleBookmark={toggleBookmark}
           />
         );
       })}

@@ -1,7 +1,7 @@
 import "./Create.css";
 
 const Create = ({ appendCard }) => {
-  function onSubmitNewCard(event) {
+  const onSubmitNewCard = (event) => {
     event.preventDefault();
     appendCard(
       event.target.question.value,
@@ -9,7 +9,7 @@ const Create = ({ appendCard }) => {
       event.target.tag.value
     );
     event.target.reset();
-  }
+  };
 
   return (
     <>

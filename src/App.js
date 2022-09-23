@@ -1,6 +1,7 @@
 import "./App.css";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useId } from "react";
+import { v4 as uuid } from "uuid";
 
 import Cards from "./pages/cards/Cards";
 import Profile from "./pages/profile/Profile";
@@ -10,21 +11,21 @@ import Create from "./components/create/Create";
 
 const db = [
   {
-    id: 6543,
+    id: uuid().slice(0, 8),
     question: "How is the weather?",
     answer: "Sunny!",
     tags: ["weather", "sun", "rain"],
     bookmarked: true,
   },
   {
-    id: 153,
+    id: uuid().slice(0, 8),
     question: "What is the best beer?",
     answer: "Dortmunder Kronen!",
     tags: ["beer", "dortmund"],
     bookmarked: false,
   },
   {
-    id: 3,
+    id: uuid().slice(0, 8),
     question: "How many people live in the Philippines?",
     answer: "Around 100m",
     tags: ["philippines", "population"],
@@ -42,13 +43,28 @@ function App() {
     localStorage.setItem("cards", JSON.stringify(cards));
   }, [cards]);
 
+  const appendCard = (question, answer, tag) => {
+    setCards((prevCards) => {
+      return [
+        ...prevCards,
+        {
+          id: uuid().slice(0, 8),
+          question: question,
+          answer: answer,
+          tags: [tag],
+          bookmarked: false,
+        },
+      ];
+    });
+  };
+
   const loadPage = (page) => {
     switch (page) {
       case "home":
         return (
           <>
-            <Cards cards={db} />
-            <Create />
+            <Cards cards={cards} />
+            <Create appendCard={appendCard} />
           </>
         );
       case "profile":

@@ -1,10 +1,24 @@
 import "./Create.css";
 
-const Create = () => {
+const Create = ({ appendCard }) => {
+  function onSubmitNewCard(event) {
+    event.preventDefault();
+    appendCard(
+      event.target.question.value,
+      event.target.answer.value,
+      event.target.tag.value
+    );
+    event.target.reset();
+  }
+
   return (
     <>
       <h2 className="card__form_title">Add new quiz card</h2>
-      <form action="" className="card__form" data-js="card-form">
+      <form
+        onSubmit={onSubmitNewCard}
+        className="card__form"
+        data-js="card-form"
+      >
         <label className="card__form__label" htmlFor="question">
           Your question:
         </label>

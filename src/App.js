@@ -1,9 +1,12 @@
 import "./App.css";
+
+import { useEffect, useState } from "react";
+
 import Cards from "./pages/cards/Cards";
 import Profile from "./pages/profile/Profile";
 import Header from "./components/header/Header";
 import Navigation from "./components/navigation/Navigation";
-import { useState } from "react";
+import Create from "./components/create/Create";
 
 const db = [
   {
@@ -31,12 +34,23 @@ const db = [
 
 function App() {
   const [page, setPage] = useState("home");
+  const [cards, setCards] = useState(() => {
+    return JSON.parse(localStorage.getItem("cards")) ?? db;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cards", JSON.stringify(cards));
+  }, [cards]);
 
   const loadPage = (page) => {
-    console.log(page + " wurde geklickt.");
     switch (page) {
       case "home":
-        return <Cards cards={db} />;
+        return (
+          <>
+            <Cards cards={db} />
+            <Create />
+          </>
+        );
       case "profile":
         return <Profile />;
       case "bookmarks":

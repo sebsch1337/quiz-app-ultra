@@ -6,11 +6,22 @@ import bookmarkIconAdd from "../../img/bookmark_add.svg";
 import bookmarkedIcon from "../../img/bookmarked.svg";
 import deleteIcon from "../../img/delete.svg";
 
-const Card = ({ cardId, question, answer, tags, bookmarked, deleteCard }) => {
+const Card = ({
+  cardId,
+  question,
+  answer,
+  tags,
+  bookmarked,
+  deleteCard,
+  toggleBookmark,
+}) => {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
     <li className="card__item card__item__enter">
-      <button className="card__top-button card__top-button--bookmark">
+      <button
+        onClick={() => toggleBookmark(cardId)}
+        className="card__top-button card__top-button--bookmark"
+      >
         <img
           className="card__top-button-icon--bookmark"
           src={bookmarked ? bookmarkedIcon : bookmarkIconAdd}

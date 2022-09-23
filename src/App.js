@@ -61,19 +61,41 @@ function App() {
   const deleteCard = (cardId) =>
     setCards(cards.filter((card) => card.id !== cardId));
 
+  const toggleBookmark = (cardId) => {
+    setCards(
+      cards.map((card) => {
+        if (card.id === cardId) {
+          return { ...card, bookmarked: !card.bookmarked };
+        } else {
+          return card;
+        }
+      })
+    );
+  };
+
   const loadPage = (page) => {
     switch (page) {
       case "home":
         return (
           <>
-            <Cards cards={cards} deleteCard={deleteCard} />
+            <Cards
+              cards={cards}
+              deleteCard={deleteCard}
+              toggleBookmark={toggleBookmark}
+            />
             <Create appendCard={appendCard} />
           </>
         );
       case "profile":
         return <Profile />;
       case "bookmarks":
-        return <Cards cards={db.filter((card) => card.bookmarked)} />;
+        return (
+          <Cards
+            cards={cards.filter((card) => card.bookmarked)}
+            deleteCard={deleteCard}
+            toggleBookmark={toggleBookmark}
+          />
+        );
       default:
         return page + " exisitert (noch) nicht!";
     }

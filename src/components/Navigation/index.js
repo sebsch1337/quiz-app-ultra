@@ -1,4 +1,3 @@
-import "./Navigation.css";
 import bookmarksIcon from "../../img/bookmarks.svg";
 import homeIcon from "../../img/home.svg";
 import profileIcon from "../../img/profile.svg";
@@ -6,10 +5,10 @@ import profileIcon from "../../img/profile.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-const Navigation = ({ page, setPage }) => {
+const Navigation = () => {
   return (
-    <footer className="footer">
-      <nav className="navigation">
+    <Footer>
+      <NavBar>
         <LinkButton to="/" end>
           <img src={homeIcon} alt="Navigate to home" />
         </LinkButton>
@@ -21,12 +20,27 @@ const Navigation = ({ page, setPage }) => {
         <LinkButton to="/profile">
           <img src={profileIcon} alt="Navigate to profile" />
         </LinkButton>
-      </nav>
-    </footer>
+      </NavBar>
+    </Footer>
   );
 };
 
 export default Navigation;
+
+const NavBar = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+`;
+
+const Footer = styled.footer`
+  height: 50px;
+  width: 100%;
+  background-color: var(--dark-color);
+  position: fixed;
+  bottom: 0;
+`;
 
 const LinkButton = styled(NavLink)`
   border: 0;

@@ -5,10 +5,10 @@ import { Routes, Route } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
 import Cards from "./pages/cards/Cards";
+import Create from "./components/create/Create";
 import Profile from "./pages/profile/Profile";
 import Header from "./components/header/Header";
-import Navigation from "./components/navigation/Navigation";
-import Create from "./components/create/Create";
+import Navigation from "./components/Navigation";
 
 const db = [
   {
@@ -81,7 +81,6 @@ function App() {
         <Routes>
           <Route
             path="/"
-            end
             element={
               <>
                 <Cards

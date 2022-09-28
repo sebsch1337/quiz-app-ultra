@@ -1,5 +1,4 @@
-import "./Cards.css";
-import Card from "../../components/card/Card";
+import Card from "../../components/Card";
 
 const Cards = ({ cards, deleteCard, toggleBookmark }) => {
   return (

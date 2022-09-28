@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
-import Cards from "./pages/cards/Cards";
-import Profile from "./pages/profile/Profile";
-import Header from "./components/header/Header";
-import Navigation from "./components/navigation/Navigation";
-import Create from "./components/create/Create";
+import Cards from "./pages/Cards";
+import Create from "./components/Create";
+import Profile from "./pages/Profile";
+import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 
 const db = [
   {
@@ -35,7 +35,6 @@ const db = [
 ];
 
 function App() {
-  const [page, setPage] = useState("home");
   const [cards, setCards] = useState(() => {
     return JSON.parse(localStorage.getItem("cards")) ?? db;
   });
@@ -81,7 +80,6 @@ function App() {
         <Routes>
           <Route
             path="/"
-            end
             element={
               <>
                 <Cards
@@ -107,7 +105,7 @@ function App() {
           <Route path="*" element={<h2>Seite existiert nicht!</h2>} />
         </Routes>
       </main>
-      <Navigation page={page} setPage={setPage} />
+      <Navigation />
     </div>
   );
 }

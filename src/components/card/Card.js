@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Tag from "../tag/Tag";
 import "./Card.css";
-
+import styled from "styled-components";
 import bookmarkIconAdd from "../../img/bookmark_add.svg";
 import bookmarkedIcon from "../../img/bookmarked.svg";
 import deleteIcon from "../../img/delete.svg";
@@ -47,12 +46,22 @@ const Card = ({
       </button>
       <p className="card__answer">{showAnswer && answer}</p>
       <ul className="card__tag-list">
-        {tags.map((tag) => {
-          return <Tag key={tag} name={tag} />;
-        })}
+        {tags.map((tag) => (
+          <TagListItem key={tag}>{tag}</TagListItem>
+        ))}
       </ul>
     </li>
   );
 };
 
 export default Card;
+
+const TagListItem = styled.li`
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  border: dotted 1px var(--primary-color);
+  border-radius: 5px;
+  padding: 2px 5px;
+  font-size: 8pt;
+  text-decoration: none;
+`;

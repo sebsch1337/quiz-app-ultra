@@ -1,6 +1,7 @@
 import "./App.css";
 
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
 import Cards from "./pages/cards/Cards";
@@ -73,38 +74,39 @@ function App() {
     );
   };
 
-  const loadPage = (page) => {
-    switch (page) {
-      case "home":
-        return (
-          <>
-            <Cards
-              cards={cards}
-              deleteCard={deleteCard}
-              toggleBookmark={toggleBookmark}
-            />
-            <Create appendCard={appendCard} />
-          </>
-        );
-      case "profile":
-        return <Profile />;
-      case "bookmarks":
-        return (
-          <Cards
-            cards={cards.filter((card) => card.bookmarked)}
-            deleteCard={deleteCard}
-            toggleBookmark={toggleBookmark}
-          />
-        );
-      default:
-        return page + " exisitert (noch) nicht!";
-    }
-  };
-
   return (
     <div className="App">
       <Header />
-      <main>{loadPage(page)}</main>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            end
+            element={
+              <>
+                <Cards
+                  cards={cards}
+                  deleteCard={deleteCard}
+                  toggleBookmark={toggleBookmark}
+                />
+                <Create appendCard={appendCard} />
+              </>
+            }
+          />
+          <Route
+            path="/bookmarks"
+            element={
+              <Cards
+                cards={cards.filter((card) => card.bookmarked)}
+                deleteCard={deleteCard}
+                toggleBookmark={toggleBookmark}
+              />
+            }
+          />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<h2>Seite existiert nicht!</h2>} />
+        </Routes>
+      </main>
       <Navigation page={page} setPage={setPage} />
     </div>
   );

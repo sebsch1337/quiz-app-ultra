@@ -27,19 +27,19 @@ const Navigation = () => {
 
 export default Navigation;
 
-const NavBar = styled.nav`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100%;
-`;
-
 const Footer = styled.footer`
   height: 50px;
   width: 100%;
   background-color: var(--dark-color);
   position: fixed;
   bottom: 0;
+`;
+
+const NavBar = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
 `;
 
 const LinkButton = styled(NavLink)`

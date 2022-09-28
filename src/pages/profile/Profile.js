@@ -5,7 +5,7 @@ const Profile = () => {
   return (
     <section className="profile">
       <h1>Hi Sebastian!</h1>
-      <img src={profileImage} alt="A picture of me" className="profile__pic" />
+      <img src={profileImage} alt="That's me!" className="profile__pic" />
       <p className="profile__text">
         I don't know what a profile in a quiz game is needed for. But anyways...
         <br />

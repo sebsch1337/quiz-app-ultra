@@ -26,7 +26,7 @@ const Create = ({ appendCard }) => {
 
   return (
     <>
-      <Header>Add new quiz card</Header>
+      <FormTitle>Add new quiz card</FormTitle>
       <CardForm onSubmit={onSubmitNewCard} data-js="card-form">
         <FormLabel htmlFor="question">Your question:</FormLabel>
         <FormTextArea
@@ -75,7 +75,7 @@ const Create = ({ appendCard }) => {
 
 export default Create;
 
-const Header = styled.h2`
+const FormTitle = styled.h2`
   margin-top: 2em;
 `;
 

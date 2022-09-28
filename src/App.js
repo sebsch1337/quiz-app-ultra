@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 import Cards from "./pages/cards/Cards";
 import Create from "./components/Create";
 import Profile from "./pages/profile/Profile";
-import Header from "./components/header/Header";
+import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 
 const db = [

@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 
 import Cards from "./pages/Cards";
 import Create from "./components/Create";
-import Profile from "./pages/profile/Profile";
+import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 

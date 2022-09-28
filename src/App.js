@@ -35,7 +35,6 @@ const db = [
 ];
 
 function App() {
-  const [page, setPage] = useState("home");
   const [cards, setCards] = useState(() => {
     return JSON.parse(localStorage.getItem("cards")) ?? db;
   });
@@ -106,7 +105,7 @@ function App() {
           <Route path="*" element={<h2>Seite existiert nicht!</h2>} />
         </Routes>
       </main>
-      <Navigation page={page} setPage={setPage} />
+      <Navigation />
     </div>
   );
 }
